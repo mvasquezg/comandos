@@ -129,6 +129,22 @@ sudo -h localhost mysql -u root -p
 ################# FINALIZA CONSULTA PARA OBTENER EL NUMERO DE ELEMNTOS DE UNA TABLA QUE CUMPLAN CON UNA CONDICON ###################
 
 
+################# INICIA CONSULTA PARA OBTENER LOS DATOS DE FORMA DESCENDENTE ###################
+     #comando
+     select campo1, campo2
+     from 'nombreTabla'
+     where ('eavuala condicion')
+     order by campo1 desc;
+     
+     #Ejemplo
+     select nombreArticulo, precio  
+     from articulo 
+     where precio > 180 
+     order by precio desc;
+     
+################# FINALIZA CONSULTA PARA OBTENER LOS DATOS DE FORMA DESCENDENTE ###################
+
+
 
 
 
