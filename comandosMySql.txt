@@ -144,6 +144,32 @@ sudo -h localhost mysql -u root -p
      
 ################# FINALIZA CONSULTA PARA OBTENER LOS DATOS DE FORMA DESCENDENTE ###################
 
+################# INICIA CONSULTA PARA OBTENER DATOS DE DOS TABLAS CON INNER Y SIN INNER JOIN ###################
+     #comando sin inner join
+     select *
+     from tabla1, tabla2
+     where tabl1.campoId = tabla2.campoIdTabla1
+     
+     #Ejemplo
+     select * 
+     from articulo, fabricante
+     where articulo.idFabricante=fabricante.idFabricante;
+     
+     #comando con inner join
+     select *
+     from tabla1 
+     inner join tabla2
+     on tabl1.campoId = tabla2.campoIdTabla1
+     
+     #Ejemplo
+     select * 
+     from articulo
+     inner join fabricante
+     on articulo.idFabricante=fabricante.idFabricante;
+     
+     
+################ FINALIZA CONSULTA PARA OBTENER DATOS DE DOS TABLAS CON INNER Y SIN INNER JOIN ###################
+
 
 
 
