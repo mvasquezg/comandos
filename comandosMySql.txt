@@ -1,0 +1,191 @@
+#Comandos SQL en mysql
+
+#Iniciar servicios
+systemctl start mysql
+
+#Iniciar Sesion
+sudo -h localhost mysql -u root -p
+
+#limpiar consola en linux
+\! clear; == ctrl+L
+
+#Mostrar todas las bases de datos
+show databases;
+
+#crear base de datos
+create database 'nombreDeBaseDeDatos';
+
+#Creando la base de datos para que reconozca caracyeres especiales
+CREATE DATABASE cursoPildoras CHARACTER SET utf8 COLLATE utf8_general_ci
+
+
+#Ejemplo
+create database tiendaElectrodomesticos;
+
+#Usar la base de datos
+use 'nombreDeBaseDeDatos';
+
+#Ejemplo
+use tiendaElectrodomesticos;
+
+#Mostrar tablas de la bd;
+show tables;
+
+#Crear tables
+create table 'NombreTabla'(atributos);
+
+#Ejemplo
+create table customer(
+     idCustomer int(10) not null,
+     nameCustomer varchar(60),
+     lastName VARCHAR (60),
+     middleName VARCHAR (60),
+     phone TEXT(10),
+     primary key(idCustomer)
+    );
+
+#Mostrar descripcion de tablas
+desc 'NombreTabla';
+
+#Ejemplo
+desc customer;
+
+#Consultar todos los datos de una tabla
+select * from 'NombreTabla'
+
+#Ejemplo
+select * from customer;
+
+#Selecciondo con condicion where <, >, <=, >=
+select * from 
+where 'Condicion'
+
+#Ejemplo
+select * from customer
+where lastName = 'Vasquez';
+
+#ejemplo seleccionando con condicional
+select * from product
+Where trademarkProduct='LG'
+and priceProduct>4000;
+
+
+#Condicionnado con LIKE
+select * from customer
+where lastName like 'V%' #Me devuelve todos los datos que empiezen por la letra V
+
+select * from provider 
+where idProvider like "%4%" #Me devuelve todos los datos que contienen un 4 en medio
+
+select * from provider 
+where idProvider like "%4" #Me devuelve todos los datos que contienen un 4 al final
+
+SELECT * FROM tiendaElectrodomesticos.customer
+where phone not like '938%';   #Me devuelve todos los valores que no empiezan en 938
+
+SELECT * from tiendaElectrodomesticos.product
+where idProduct like '10_'; #Me duevuelve todos los datos que empiezan en 10 y que tiene un digito mas
+
+#Condiciones con BETWEEN odernar rango
+select nameProduct, colorProduct, priceProduct from product
+where priceProduct between 1500 and 5000; #Me trae todos los valores que se encuentren entre 1500 y 5000
+
+select nameProduct, colorProduct, priceProduct from product 
+where priceProduct not between 1500 and 5000; #Me trae todos los valores que no se encuentren entre 1500 y 5000
+
+ select * from product
+ where priceProduct in (1200, 3500, 4500) #Me trae todos los valores de la columna que coincida la informacion
+
+#Funciones de SQl
+#Suma
+select sum(priceProduct) from product; #Me trae la suma de tod un campo especifico
+
+#count
+select count(idProvider) from provider; #me trae el conteo de los elemntos que tengo en mi tabla
+
+#min
+select min(priceProduct) from product; #Me trae el valor minimo de un campo de tabla
+
+#max
+select max(priceProduct) from product; #Me trae el valor Maximo de un campo de tabla
+
+#group by
+select trademarkProduct, sum(priceProduct) 
+from product
+group by trademarkProduct; #Me trae todos los valores de marca y la suma de ellos agrupados por la marca
+
+#count
+select trademarkProduct, count(*) 
+from product 
+group by trademarkProduct; #Me trae la marca y cuantas veces aparce en la tabla
+
+#having
+select colorProduct, min(priceProduct) 
+from product 
+group by colorProduct 
+having min(priceProduct) <2000; #Me trae el valor minimo menor a 2000 agrupado por color
+
+#cargar tabla en base de datos
+source 'path'
+#ejemplo
+source /home/mvg/Desktop/BD1/cine_BK.sql;
+
+#Crear tabla a partir de una ya hecha
+create table empleados_antiguos select * from empleado limit 0;
+
+#Exportar tabla de mysql desde consola linux (tienes que salir de mysql)
+mysqldump -u root -p cine > /home/mvg/Desktop/BD1/cineCopia.sql
+
+#importar tabla excel cvs e n linux
+load data local infile '/home/mvg/Desktop/CARPETACVS/ARCHIVO.csv' 
+into table clientes 
+fields terminated by ',' 
+enclosed by '"' 
+lines terminated by '\n' 
+ignore 1 rows;
+
+#dIFERENCIAS DE DIAS
+select NOMBREARTICULO, SECCION, PRECIO, FECHA, NOW() AS DIAACTUAL, DATEDIFF(NOW(), FECHA) AS DIFRENCIASDIAS
+FROM productos 
+where SECCION='DEPORTES';
+
+##########################################Ejemplo base de datos tienda Informatica##########################################
+create database tiendaInformatica;
+
+create table fabricante(idFabricante int auto_increment,
+    -> nombreFabricante nvarchar(100) not null,
+    -> primary key(idFabricante));
+
+
+INSERT INTO articulos (idArticulo,nombreArticulo,precioArticulo,idFabricante) 
+VALUES 
+(null,"leo. Morbi neque tellus, imperdiet non, vestibulum nec, euismod in,",23.46,62),
+############################################################################################################################
+
+##########################################Ejemplo base de datos Empleado ###################################################
+INSERT INTO departamento (idDepartamento, nombreDepartamento, presupuesto) 
+VALUES 
+(null,"Sed PC",83019.77);
+
+
+INSERT INTO empleado (idEmpleado,nombreEmpleado,primerApellido,segundoApellido,idDepartamento) 
+VALUES 
+(null,"Acton","Henry","Hahn",2),
+
+select nombreDepartamento, LENGTH(nombreDepartamento)
+from departamento
+where LENGTH(nombreDepartamento)  
+order by nombreDepartamento;
+
+select nombreDepartamento, length(nombreDepartamento) 
+from departamento 
+where length(nombreDepartamento)=(select min(length(nombreDepartamento)) 
+                                  from departamento) 
+                                  or length(nombreDepartamento)=(
+                                      select max(length(nombreDepartamento)) from departamento) 
+order by nombreDepartamento;
+
+
+############################################################################################################################
+
+ show variables where variable_name in ('hostname', 'port');
