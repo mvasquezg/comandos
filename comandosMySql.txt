@@ -119,6 +119,14 @@ sudo -h localhost mysql -u root -p
      select avg(precio) from articulo;
 ################# FINALIZA CONSULTA PARA OBTENER EL PROMEDIO ###################
 
+################# INICIA CONSULTA PARA OBTENER EL NUMERO DE ELEMNTOS DE UNA TABLA QUE CUMPLAN CON UNA CONDICON ###################
+     #comando
+     select count(*) from 'nombreTabla' campo>100;
+     
+     #ejemplo
+     select count(*) from articulo where precio >180
+     
+################# FINALIZA CONSULTA PARA OBTENER EL NUMERO DE ELEMNTOS DE UNA TABLA QUE CUMPLAN CON UNA CONDICON ###################
 
 
 
