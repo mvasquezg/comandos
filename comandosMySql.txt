@@ -34,7 +34,6 @@ sudo -h localhost mysql -u root -p
      USE cursoPildoras
 ################# FINALIZA USAR BASE DE DATOS ###################
 
-
 ################# INICIA ELIMINAR BASE DE DATOS ###################
      #Comando
      DROP DATABASE 'nombreDeBaseDeDatos'
@@ -45,35 +44,40 @@ sudo -h localhost mysql -u root -p
     DROP DATABASE cursoPildoras;
 ################# FINALIZA ELIMINAR BASE DE DATOS ###################
 
+################# INICIA MOSTRAR TABLAS ###################
+     #Comando;
+     show tables;
+################# FINALIZA MOSTRAR TABLAS ###################
+
+################# INICIA CREAR TABLAS ###################
+     #Comando;
+     create  table 'nombreTabla'(
+          campo1 tipoDedato,
+          campo2 tipoDeDato,
+          ...
+          campoN tipoDeDato
+     );
+     
+     #Ejemplo tabla con primary key auto incremento
+     create table fabricante(
+         idFabricante int auto_increment,
+         nombreFabricante varchar(100) not null,
+          primary key(idFabricante)
+     );
+     
+     #Ejemplo tabla con foraign key
+     create table articulo( 
+          idArticulo int auto_increment,
+          nombreArticulo varchar (100) not null,
+          precio float(18,2) not null,
+          idFabricante int not null,
+          primary key (idArticulo),
+          foreign key (idFabricante) references fabricante(idFabricante)
+     );
+################# FINALIZA CREAR TABLAS ###################
 
 
 
-
-
-#Mostrar tablas de la bd;
-show tables;
-
-#Crear tables
-create table 'NombreTabla'(atributos);
-
-#Ejemplo
-create table customer(
-     idCustomer int(10) not null,
-     nameCustomer varchar(60),
-     lastName VARCHAR (60),
-     middleName VARCHAR (60),
-     phone TEXT(10),
-     primary key(idCustomer)
-    );
-
-
-
-
-
-
-
-#Ejemplo
-use tiendaElectrodomesticos;
 
 
 #Mostrar descripcion de tablas
@@ -180,19 +184,6 @@ ignore 1 rows;
 select NOMBREARTICULO, SECCION, PRECIO, FECHA, NOW() AS DIAACTUAL, DATEDIFF(NOW(), FECHA) AS DIFRENCIASDIAS
 FROM productos 
 where SECCION='DEPORTES';
-
-##########################################Ejemplo base de datos tienda Informatica##########################################
-create database tiendaInformatica;
-
-create table fabricante(idFabricante int auto_increment,
-    -> nombreFabricante nvarchar(100) not null,
-    -> primary key(idFabricante));
-
-
-INSERT INTO articulos (idArticulo,nombreArticulo,precioArticulo,idFabricante) 
-VALUES 
-(null,"leo. Morbi neque tellus, imperdiet non, vestibulum nec, euismod in,",23.46,62),
-############################################################################################################################
 
 ##########################################Ejemplo base de datos Empleado ###################################################
 INSERT INTO departamento (idDepartamento, nombreDepartamento, presupuesto) 
