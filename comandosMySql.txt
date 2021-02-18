@@ -76,15 +76,19 @@ sudo -h localhost mysql -u root -p
      );
 ################# FINALIZA CREAR TABLAS ###################
 
+################# INICIA DESCRIPCION DE LAS TABLAS CREADAS ###################
+     #comando
+     desc 'nombreTabla';
+     
+     #Ejemplo
+     desc fabricante;
+     
+     DESC articulo;     
+################# FINALIZA DESCRIPCION DE LAS TABLAS CREADAS ###################
 
 
 
 
-#Mostrar descripcion de tablas
-desc 'NombreTabla';
-
-#Ejemplo
-desc customer;
 
 #Consultar todos los datos de una tabla
 select * from 'NombreTabla'
