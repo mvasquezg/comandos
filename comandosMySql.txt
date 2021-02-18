@@ -97,6 +97,21 @@ sudo -h localhost mysql -u root -p
 
 ################# FINALIZA INSERTAR DATOS A LAS TABLAS CREADAS ###################
 
+################# INICIA CONSULTA DE UN RANGO DE DATOS ###################
+     #comando utilizando operadores relacionales
+     select campo1, campo2 from 'nombreTabla' where campo1>=100 and campo1<=500;
+     
+     #ejemplo
+     select * from articulo where precio >=60 AND precio <=120;
+     
+     #comando utilizando betweent
+     select campo1, campo2 from 'nombreTabla' where campo1 between 100 and 500;
+     
+     #ejemplo
+     select * from articulo where precio between 60 AND 120;
+
+################# FINALIZA CONSULTA DE UN RANGO DE DATOS ###################
+
 
 
 
