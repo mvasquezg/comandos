@@ -109,9 +109,15 @@ sudo -h localhost mysql -u root -p
      
      #ejemplo
      select * from articulo where precio between 60 AND 120;
-
 ################# FINALIZA CONSULTA DE UN RANGO DE DATOS ###################
 
+################# INICIA CONSULTA PARA OBTENER EL PROMEDIO ###################
+     #comando 
+     select avg('campo') from 'nombreTabla';
+     
+     #ejemplo
+     select avg(precio) from articulo;
+################# FINALIZA CONSULTA PARA OBTENER EL PROMEDIO ###################
 
 
 
