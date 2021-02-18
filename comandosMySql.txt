@@ -86,6 +86,20 @@ sudo -h localhost mysql -u root -p
      DESC articulo;     
 ################# FINALIZA DESCRIPCION DE LAS TABLAS CREADAS ###################
 
+################# INICIA INSERTAR DATOS A LAS TABLAS CREADAS ###################
+     #comando
+     insert into 'nombreTabla' (campo1, campo2, ..., campoN) values ('valorCampo1', 'valorCampo2', ..., 'valorCampoN');
+     
+     #ejemplo
+     insert into fabricante(idFabricante, nombreFabricante) values (null, "Intel");
+     
+     INSERT INTO articulo (idArticulo, nombreArticulo, precio, idFabricante ) value (null, "Mother board p17g", 458.25, 4);
+
+################# FINALIZA INSERTAR DATOS A LAS TABLAS CREADAS ###################
+
+
+
+
 
 
 
