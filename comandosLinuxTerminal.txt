@@ -1,0 +1,15 @@
+#Comandos Linux en terminal
+
+//Comandos Servidor Apache
+Iniciar: sudo service apache2 start
+Detener: sudo service apache2 stop
+Reiniciar: sudo service apache2 restart
+
+//copiar archivo de una carpra a otra
+sudo cp archivo.txt /caperta1/carpeta2
+
+//elimiar un archivo
+sudo rm -r archivo.txt
+
+//cambiar nombre archivo 
+mv archivo1.txt archivo2.txt
