@@ -9,24 +9,46 @@ sudo -h localhost mysql -u root -p
 #limpiar consola en linux
 \! clear; == ctrl+L
 
-#Mostrar todas las bases de datos
-show databases;
+################# INICIA MOSTRAR BASE DE DATOS ###################
+     #Comando
+     show databases;
+################# FINALIZA MOSTRAR BASE DE DATOS ###################
 
-#crear base de datos
-create database 'nombreDeBaseDeDatos';
+#################INICIA CREAR BASE DE DATOS ###################
+     #Comando 
+     #create database 'nombreDeBaseDeDatos';
 
-#Creando la base de datos para que reconozca caracyeres especiales
-CREATE DATABASE cursoPildoras CHARACTER SET utf8 COLLATE utf8_general_ci
+    #Ejemplo
+    create database tiendaElectrodomesticos;
+   
+   CREATE DATABASE cursoPildoras CHARACTER SET utf8 COLLATE utf8_general_ci
+################# FINALIZA CREAR BASE DE DATOS ###################
+
+################# INICIA USAR BASE DE DATOS ###################
+     #Comando 
+     use 'nombreDeBaseDeDatos';
+
+     #Ejemplo
+     use tiendaElectrodomesticos;
+   
+     USE cursoPildoras
+################# FINALIZA USAR BASE DE DATOS ###################
 
 
-#Ejemplo
-create database tiendaElectrodomesticos;
+################# INICIA ELIMINAR BASE DE DATOS ###################
+     #Comando
+     DROP DATABASE 'nombreDeBaseDeDatos'
+     
+     #Ejemplo
+     drop database tiendaElectrodomesticos;
+   
+    DROP DATABASE cursoPildoras;
+################# FINALIZA ELIMINAR BASE DE DATOS ###################
 
-#Usar la base de datos
-use 'nombreDeBaseDeDatos';
 
-#Ejemplo
-use tiendaElectrodomesticos;
+
+
+
 
 #Mostrar tablas de la bd;
 show tables;
@@ -43,6 +65,16 @@ create table customer(
      phone TEXT(10),
      primary key(idCustomer)
     );
+
+
+
+
+
+
+
+#Ejemplo
+use tiendaElectrodomesticos;
+
 
 #Mostrar descripcion de tablas
 desc 'NombreTabla';
