@@ -13,3 +13,9 @@ sudo rm -r archivo.txt
 
 //cambiar nombre archivo 
 mv archivo1.txt archivo2.txt
+
+//Instalando pdftk
+sudo apt install pdftk-java
+
+//Comando extraer hoja por hoja de un pdf
+pdftk file.pdf burst
