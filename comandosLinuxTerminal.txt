@@ -19,3 +19,6 @@ sudo apt install pdftk-java
 
 //Comando extraer hoja por hoja de un pdf
 pdftk file.pdf burst
+
+//Comando para unir hojas pdf en un solo archivo
+pdfunite hoja1.pdf hoja2.pdf dosHojasEnUnArchivo.pdf
