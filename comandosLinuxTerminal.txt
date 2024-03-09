@@ -22,3 +22,6 @@ pdftk file.pdf burst
 
 //Comando para unir hojas pdf en un solo archivo
 pdfunite hoja1.pdf hoja2.pdf dosHojasEnUnArchivo.pdf
+
+//vaciar la papelera de reciclaje
+rm -rf ~/.local/share/Trash/*
